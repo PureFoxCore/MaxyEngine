@@ -11,17 +11,22 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/glfw)
 # Add GLM library in to project
 add_subdirectory(${CMAKE_SOURCE_DIR}/glm)
 
+# Add SpdLog library in to project
+add_subdirectory(${CMAKE_SOURCE_DIR}/spdlog)
+
 # Create MaxyEngine project
 project(MaxyEngine)
 file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
 add_library(MaxyEngine SHARED ${MaxyEngineFiles})
 
-# Link GL, GLFW & GLM Libraries
+# Link GL, GLFW & SpdLog Libraries
+target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
 target_link_libraries(${PROJECT_NAME} PUBLIC GL)
 
-# Include GLFW & GLM in to MaxyEngine project
+# Include GLFW, GLM & SpdLog in to MaxyEngine project
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glfw/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/spdlog/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glm/glm)
 
 # Create SandBox project
