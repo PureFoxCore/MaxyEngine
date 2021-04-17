@@ -1,9 +1,8 @@
 # Initial cmake code
 cmake_minimum_required(VERSION 3.8)
 
-# Set C++ version to 17
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+# Set C++ version to 17 & add fPIC definition for spdlog
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_INIT} -std=c++17 -fPIC")
 
 # Add GLFW library in to project
 add_subdirectory(${CMAKE_SOURCE_DIR}/glfw)
