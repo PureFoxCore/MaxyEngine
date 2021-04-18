@@ -1,16 +1,16 @@
 #pragma once
 
-#include "Application.h"
-#include "Logger.h"
+#include "Core/Application.h"
+#include "Core/Logger.h"
 
-extern Maxy::Core::Application* Maxy::Core::CreateApplication();
+extern Maxy::Application* Maxy::CreateApplication();
 
 int main(int argc, char** argv)
 {
-    Maxy::Core::Logger::Init();
+    Maxy::Logger::Init();
     MAXY_CORE_INFO("Logger initialized!");
 
-    auto app = Maxy::Core::CreateApplication();
+    auto app = Maxy::CreateApplication();
     app->Run();
     delete &app;
     return 0;

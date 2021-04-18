@@ -28,6 +28,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glfw/inclu
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/spdlog/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glm/glm)
 
+# Self include
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/MaxyEngine)
+
 # Create SandBox project
 project(SandBox)
 file(GLOB_RECURSE SandBoxFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
@@ -35,6 +38,3 @@ add_executable(SandBox ${SandBoxFiles})
 
 # Link SandBox to MaxyEngine
 target_link_libraries(${PROJECT_NAME} PRIVATE MaxyEngine)
-
-# Include MaxyEngine in to SandBox 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/MaxyEngine)

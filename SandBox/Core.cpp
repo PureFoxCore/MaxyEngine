@@ -1,6 +1,6 @@
 #include <Maxy.h>
 
-class SandBox : public Maxy::Core::Application
+class SandBox : public Maxy::Application
 {
 public:
     SandBox()
@@ -14,7 +14,7 @@ public:
     }
 };
 
-Maxy::Core::Application* Maxy::Core::CreateApplication()
+Maxy::Application* Maxy::CreateApplication()
 {
     return new SandBox;
 }

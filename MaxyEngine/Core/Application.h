@@ -1,22 +1,19 @@
 #pragma once
 
-#include "Core.h"
+#include "Core/Core.h"
 
 namespace Maxy
 {
-    namespace Core
+    class Application
     {
-        class Application
-        {
-        public:
-            Application();
-            virtual ~Application();
+    public:
+        Application();
+        virtual ~Application();
 
-            void Run();
-        private:
-            
-        };
+        void Run();
+    private:
+        
+    };
 
-        Application* CreateApplication();
-    }
+    Application* CreateApplication();
 }
