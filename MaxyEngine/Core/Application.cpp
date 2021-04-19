@@ -1,3 +1,4 @@
+#include "mxpch.h"
 #include "Core/Application.h"
 
 namespace Maxy

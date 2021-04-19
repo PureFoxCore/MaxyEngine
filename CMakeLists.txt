@@ -18,6 +18,9 @@ project(MaxyEngine)
 file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
 add_library(MaxyEngine SHARED ${MaxyEngineFiles})
 
+# Add precompiled header in to MaxyEngine project
+target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/Core/mxpch.h)
+
 # Link GL, GLFW & SpdLog Libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
