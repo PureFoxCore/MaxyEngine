@@ -1,8 +1,12 @@
 #pragma once
 
-#if defined _WIN32
-#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
-#elif defined (__APPLE__)
+#ifdef MAXY_PLATFORM_WINDOWS
+#endif
+
+#ifdef MAXY_PLATFORM_LINUX
+#endif
+
+#ifdef MAXY_PLATFORM_APPLE
 #endif
 
 #define BIT(x) (1 << x)

@@ -24,6 +24,17 @@ project(MaxyEngine)
 file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
 add_library(MaxyEngine SHARED ${MaxyEngineFiles})
 
+# Platform definition
+if(WIN32)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_PLATFORM_WINDOWS)
+endif()
+if(APPLE)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_PLATFORM_APPLE)
+endif()
+if(UNIX AND NOT APPLE)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_PLATFORM_LINUX)
+endif()
+
 # Add precompiled header in to MaxyEngine project
 target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/Core/mxpch.h)
 
