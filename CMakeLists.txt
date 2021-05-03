@@ -41,7 +41,10 @@ target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_
 # Link GL, GLFW & SpdLog Libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
-target_link_libraries(${PROJECT_NAME} PUBLIC GL)
+
+if (UNIX)
+    target_link_libraries(${PROJECT_NAME} PUBLIC GL)
+endif()
 
 # Include GLFW, GLM & SpdLog in to MaxyEngine project
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glfw/include)
