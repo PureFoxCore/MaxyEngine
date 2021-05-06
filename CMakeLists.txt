@@ -35,8 +35,11 @@ if(UNIX AND NOT APPLE)
     target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_PLATFORM_LINUX)
 endif()
 
+# Enable asserts in Maxy
+target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_ENABLE_ASSERTS)
+
 # Add precompiled header in to MaxyEngine project
-target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/Core/mxpch.h)
+target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/mxpch.h)
 
 # Link GL, GLFW & SpdLog Libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)

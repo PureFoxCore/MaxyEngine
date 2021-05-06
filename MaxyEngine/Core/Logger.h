@@ -30,3 +30,11 @@ namespace Maxy
 #define MAXY_WARN(...)          ::Maxy::Logger::GetClientLogger()->warn(__VA_ARGS__)
 #define MAXY_ERROR(...)         ::Maxy::Logger::GetClientLogger()->error(__VA_ARGS__)
 #define MAXY_CRITICAL(...)      ::Maxy::Logger::GetClientLogger()->critical(__VA_ARGS__)
+
+#ifdef MAXY_ENABLE_ASSERTS
+    #define MAXY_ASSERT(condition, ...) { if (!(condition)) { MAXY_ERROR(__VA_ARGS__); __debugbreak(); } }
+    #define MAXY_CORE_ASSERT(condition, ...) { if (!(condition)) { MAXY_CORE_ERROR(__VA_ARGS__); __debugbreak(); } }
+#else
+    #define MAXY_ASSERT(condition, ...)
+    #define MAXY_CORE_ASSERT(condition, ...)
+#endif

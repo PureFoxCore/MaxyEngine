@@ -1,6 +1,8 @@
 #pragma once
 
+#include <memory>
 #include "Core/Core.h"
+#include "Core/Window.h"
 
 namespace Maxy
 {
@@ -12,7 +14,8 @@ namespace Maxy
 
         void Run();
     private:
-        
+        std::unique_ptr<Window> m_Window;
+        bool m_Running = true;
     };
 
     Application* CreateApplication();

@@ -8,11 +8,11 @@ namespace Maxy
     class WindowResizeEvent : public Event
     {
     public:
-        WindowResizeEvent(uint width, uint height) 
+        WindowResizeEvent(unsigned int width, unsigned int height) 
             : m_Width(width), m_Height(height) { }
 
-        inline uint GetWidth() const { return m_Width; }
-        inline uint GetHeight() const { return m_Height; }
+        inline unsigned int GetWidth() const { return m_Width; }
+        inline unsigned int GetHeight() const { return m_Height; }
 
         std::string ToString() const override
         {
@@ -24,7 +24,7 @@ namespace Maxy
         EVENT_CLASS_TYPE(EventType::WindowResize)
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     private:
-        uint m_Width, m_Height;
+        unsigned int m_Width, m_Height;
     };
 
     class WindowCloseEvent : public Event
