@@ -34,6 +34,13 @@ namespace Maxy
 
         EVENT_CLASS_TYPE(EventType::WindowClose)
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
+
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "Window close";
+            return ss.str();
+        }
     };
 
     class AppTickEvent : public Event
