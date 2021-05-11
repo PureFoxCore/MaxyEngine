@@ -30,7 +30,7 @@ namespace Maxy
         m_Data.Width = props.GetWidth();
         m_Data.Height = props.GetHeight();
     
-        MAXY_CORE_INFO("Creating windows [Title: {0}, Width: {1}, Height: {2}]", props.GetTitle(), props.GetWidth(), props.GetHeight());
+        MAXY_CORE_INFO("Creating window: [Title: {0}, Width: {1}, Height: {2}]", props.GetTitle(), props.GetWidth(), props.GetHeight());
     
         if (!isGLFWInitialized)
         {
