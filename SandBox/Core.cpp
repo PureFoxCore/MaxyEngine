@@ -10,7 +10,7 @@ public:
 
     void OnUpdate() override
     {
-        MAXY_INFO("ExampleLayer::Update()");
+        // MAXY_INFO("ExampleLayer::Update()");
     }
 
     void OnEvent(Maxy::Event &event) override

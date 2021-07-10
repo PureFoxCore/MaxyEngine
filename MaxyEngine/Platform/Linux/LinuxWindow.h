@@ -1,8 +1,9 @@
 #pragma once 
 
-#include <GLFW/glfw3.h>
-#include <string>
 #include "Core/Window.h"
+
+#include <string>
+#include <GLFW/glfw3.h>
 
 namespace Maxy
 {
@@ -14,8 +15,8 @@ namespace Maxy
 
         void OnUpdate() override;
 
-        inline unsigned int GetWidth() const { return m_Data.Width; }
-        inline unsigned int GetHeight() const { return m_Data.Height; }
+        inline unsigned int GetWidth() const override { return m_Data.Width; }
+        inline unsigned int GetHeight() const override { return m_Data.Height; }
 
         inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
         void SetVSync(bool state) override;

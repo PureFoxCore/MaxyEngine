@@ -1,8 +1,10 @@
 #include "mxpch.h"
 
 #include "Platform/Linux/LinuxWindow.h"
-#include "Core/Logger.h"
 #include "Core/Events/Events.h"
+#include "Core/Logger.h"
+
+#include <glad/glad.h>
 
 namespace Maxy
 {   
@@ -48,6 +50,8 @@ namespace Maxy
 
         m_Window = glfwCreateWindow((int)props.GetWidth(), (int)props.GetHeight(), props.GetTitle().c_str(), NULL, NULL);
         glfwMakeContextCurrent(m_Window);
+        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        MAXY_CORE_ASSERT(status, "Failed to initialize GLAD!");
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
         
