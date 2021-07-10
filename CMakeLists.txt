@@ -5,11 +5,12 @@ cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add GLFW GLAD GLM SpdLog
+# Add GLFW, GLAD, GLM, SpdLog, ImGUI
 add_subdirectory(${CMAKE_SOURCE_DIR}/glfw)
 add_subdirectory(${CMAKE_SOURCE_DIR}/glad)
 add_subdirectory(${CMAKE_SOURCE_DIR}/glm)
 add_subdirectory(${CMAKE_SOURCE_DIR}/spdlog)
+add_subdirectory(${CMAKE_SOURCE_DIR}/imgui)
 
 # Add fPIC definition for spdlog [on Linux]
 if (UNIX AND NOT APPLE)
@@ -41,24 +42,26 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE)
 # Add precompiled header in to MaxyEngine project
 target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/mxpch.h)
 
-# Link GL, GLFW, GLAD, GLM & SpdLog Libraries
-target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
+# Link GL, GLFW, GLAD, GLM, ImGUi & SpdLog Libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
 target_link_libraries(${PROJECT_NAME} PUBLIC glad)
 target_link_libraries(${PROJECT_NAME} PUBLIC glm)
+target_link_libraries(${PROJECT_NAME} PUBLIC imgui)
+target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
 
 if (UNIX)
     target_link_libraries(${PROJECT_NAME} PUBLIC GL)
 endif()
 
-# Include GLFW, GLAD, GLM & SpdLog in to MaxyEngine project
+# Include GLFW, GLAD, GLM, ImGUI & SpdLog in to MaxyEngine project
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glfw/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glad/include)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glm/glm)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/spdlog/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/glm/glm)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/imgui/)
 
 # Self include
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/MaxyEngine)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/${PROJECT_NAME})
 
 # Create SandBox project
 project(SandBox)

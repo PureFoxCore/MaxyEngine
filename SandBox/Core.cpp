@@ -15,7 +15,7 @@ public:
 
     void OnEvent(Maxy::Event &event) override
     {
-        MAXY_TRACE("{0}", event);
+        // MAXY_TRACE("{0}", event);
     }
 };
 
@@ -25,6 +25,7 @@ public:
     SandBox()
     {
         PushLayer(new ExampleLayer());
+        PushLayer(new Maxy::ImGUILayer());
     }
 
     ~SandBox()
