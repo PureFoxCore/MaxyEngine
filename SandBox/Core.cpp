@@ -10,7 +10,8 @@ public:
 
     void OnUpdate() override
     {
-        // MAXY_INFO("ExampleLayer::Update()");
+        // auto[x, y] = Maxy::Input::GetMousePosition();
+        // MAXY_INFO("{0}, {1}", x, y);
     }
 
     void OnEvent(Maxy::Event &event) override
