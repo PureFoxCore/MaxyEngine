@@ -13,7 +13,7 @@ namespace Maxy
         EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
     protected:
         KeyEvent(int keycode)
-            : m_KeyCode(keycode) { }
+            : m_KeyCode(keycode) {}
         int m_KeyCode;
     };
 
@@ -21,7 +21,7 @@ namespace Maxy
     {
     public:
         KeyPressedEvent(int keycode, int repeatCount)
-            : KeyEvent(keycode), m_RepeatCount(repeatCount) { }
+            : KeyEvent(keycode), m_RepeatCount(repeatCount) {}
 
         inline int GetRepeatCount() const { return m_RepeatCount; }
 
@@ -37,11 +37,11 @@ namespace Maxy
         int m_RepeatCount;
     };
 
-        class KeyReleasedEvent : public KeyEvent
+    class KeyReleasedEvent : public KeyEvent
     {
     public:
         KeyReleasedEvent(int keycode)
-            : KeyEvent(keycode) { }
+            : KeyEvent(keycode) {}
 
         std::string ToString() const override
         {
@@ -51,5 +51,21 @@ namespace Maxy
         }
 
         EVENT_CLASS_TYPE(EventType::KeyReleased)
+    };
+
+    class KeyTypedEvent : public KeyEvent
+    {
+    public:
+        KeyTypedEvent(int keycode)
+            : KeyEvent(keycode) {}
+
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "Key typed: [" << m_KeyCode << "]";
+            return ss.str();
+        }
+
+        EVENT_CLASS_TYPE(EventType::KeyTyped)
     };
 }

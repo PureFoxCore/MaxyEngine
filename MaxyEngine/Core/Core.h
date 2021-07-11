@@ -10,3 +10,4 @@
 #endif
 
 #define BIT(x) (1 << x)
+#define MAXY_BIND_EVENT_FN(event) std::bind(&event, this, std::placeholders::_1)
