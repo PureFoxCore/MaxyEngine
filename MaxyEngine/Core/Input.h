@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Core/KeyCodes.h"
+#include "Core/MouseButtonCodes.h"
+
 namespace Maxy
 {
     class Input

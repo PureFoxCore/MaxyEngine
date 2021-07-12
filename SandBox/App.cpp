@@ -10,13 +10,15 @@ public:
 
     void OnUpdate() override
     {
-        // auto[x, y] = Maxy::Input::GetMousePosition();
-        // MAXY_INFO("{0}, {1}", x, y);
     }
 
     void OnEvent(Maxy::Event &event) override
     {
-        // MAXY_TRACE("{0}", event);
+        if(event.GetEventType() == Maxy::EventType::KeyPressed)
+        {
+            Maxy::KeyPressedEvent e = (Maxy::KeyPressedEvent&)event;
+            MAXY_TRACE("{0}", (char)e.GetKeyCode());
+        }
     }
 };
 
