@@ -42,10 +42,9 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE)
 # Add precompiled header in to MaxyEngine project
 target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/mxpch.h)
 
-# Link GL, GLFW, GLAD, GLM, ImGUi & SpdLog Libraries
+# Link GL, GLFW, GLAD, ImGUi & SpdLog Libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw)
 target_link_libraries(${PROJECT_NAME} PUBLIC glad)
-target_link_libraries(${PROJECT_NAME} PUBLIC glm)
 target_link_libraries(${PROJECT_NAME} PUBLIC imgui)
 target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
 

@@ -22,7 +22,7 @@ namespace Maxy
         void SetVSync(bool state) override;
         bool IsVSync() const override;
 
-        inline virtual void *GetNativeWindow() const { return m_Window; }
+        inline virtual void *GetNativeWindow() const override { return m_Window; }
 
     private:
         virtual void Init(const WindowProps &props);

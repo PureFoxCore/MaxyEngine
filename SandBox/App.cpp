@@ -14,9 +14,9 @@ public:
 
     void OnEvent(Maxy::Event &event) override
     {
-        if(event.GetEventType() == Maxy::EventType::KeyPressed)
+        if (event.GetEventType() == Maxy::EventType::KeyPressed)
         {
-            Maxy::KeyPressedEvent e = (Maxy::KeyPressedEvent&)event;
+            Maxy::KeyPressedEvent e = (Maxy::KeyPressedEvent &)event;
             MAXY_TRACE("{0}", (char)e.GetKeyCode());
         }
     }
