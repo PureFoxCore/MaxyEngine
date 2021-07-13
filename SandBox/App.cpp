@@ -8,13 +8,17 @@ public:
     {
     }
 
-    void OnUpdate() override
-    {
-    }
+    // void OnUpdate() override
+    // {
+    // }
 
-    void OnEvent(Maxy::Event &event) override
-    {
-    }
+    // void OnImGUIRender() override
+    // {
+    // }
+
+    // void OnEvent(Maxy::Event &event) override
+    // {
+    // }
 };
 
 class SandBox : public Maxy::Application
@@ -23,7 +27,6 @@ public:
     SandBox()
     {
         PushLayer(new ExampleLayer());
-        PushLayer(new Maxy::ImGUILayer());
     }
 
     ~SandBox()

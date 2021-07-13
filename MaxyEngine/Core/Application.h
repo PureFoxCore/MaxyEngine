@@ -6,6 +6,7 @@
 #include "Core/Window.h"
 #include "Core/LayerStack.h"
 #include "Core/Events/Event.h"
+#include "Core/ImGUI/ImGUILayer.h"
 #include "Core/Events/ApplicationEvent.h"
 
 namespace Maxy
@@ -30,6 +31,7 @@ namespace Maxy
 
     private:
         std::unique_ptr<Window> m_Window;
+        ImGUILayer* m_ImGUILayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
         static Application *s_Instance;

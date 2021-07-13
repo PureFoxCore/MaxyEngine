@@ -1,5 +1,6 @@
 #pragma once
 
+#include "imgui.h"
 #include "Core/Layer.h"
 #include "Core/Events/Events.h"
 
@@ -11,22 +12,12 @@ namespace Maxy
         ImGUILayer();
         ~ImGUILayer();
 
-        void OnAttach() override;
-        void OnDetach() override;
-        void OnUpdate() override;
-        void OnEvent(Event &event) override;
+        virtual void OnAttach() override;
+        virtual void OnDetach() override;
+        virtual void OnImGUIRender() override;
 
-    private:
-        bool OnMouseButtonPressedEvent(MouseButtonPressedEvent &event);
-        bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent &event);
-        bool OnMouseMovedEvent(MouseMovedEvent &event);
-        bool OnMouseScrolledEvent(MouseScrolledEvent &event);
-
-        bool OnKeyPressedEvent(KeyPressedEvent &event);
-        bool OnKeyReleasedEvent(KeyReleasedEvent &event);
-        bool OnKeyTypedEvent(KeyTypedEvent &event);
-
-        bool OnWindowResizeEvent(WindowResizeEvent &event);
+        void Begin();
+        void End();
 
     private:
         float m_Time;

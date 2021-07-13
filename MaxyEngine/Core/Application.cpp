@@ -6,7 +6,7 @@
 
 namespace Maxy
 {
-    Application* Application::s_Instance = nullptr;
+    Application *Application::s_Instance = nullptr;
 
     Application::Application()
     {
@@ -15,6 +15,8 @@ namespace Maxy
 
         m_Window = std::unique_ptr<Window>(Window::Create(WindowProps(1280, 720, "Maxy Engine")));
         m_Window->SetEventCallback(MAXY_BIND_EVENT_FN(Application::OnEvent));
+        m_ImGUILayer = new ImGUILayer();
+        PushOverlay(m_ImGUILayer);
     }
 
     Application::~Application()
@@ -42,6 +44,11 @@ namespace Maxy
 
             for (auto &&layer : m_LayerStack)
                 layer->OnUpdate();
+
+            m_ImGUILayer->Begin();
+            for (auto &&layer : m_LayerStack)
+                layer->OnImGUIRender();
+            m_ImGUILayer->End();
 
             m_Window->OnUpdate();
         }
