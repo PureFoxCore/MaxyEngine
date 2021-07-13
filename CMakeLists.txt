@@ -20,7 +20,7 @@ endif()
 # Create MaxyEngine project
 project(MaxyEngine)
 file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
-add_library(${PROJECT_NAME} SHARED ${MaxyEngineFiles})
+add_library(${PROJECT_NAME} STATIC ${MaxyEngineFiles})
 
 # Platform definition
 if(WIN32)
