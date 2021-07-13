@@ -1,5 +1,6 @@
 #include "mxpch.h"
 
+#include "Core/Logger.h"
 #include "Core/Application.h"
 #include "Core/ImGUI/ImGUILayer.h"
 #include "Platform/OpenGL/imguiOpenGL.h"
@@ -71,8 +72,8 @@ namespace Maxy
         m_Time = time;
 
         ImGui_ImplOpenGL3_NewFrame();
-        ImGui::NewFrame();
 
+        ImGui::NewFrame();
         static bool show = true;
         ImGui::ShowDemoWindow(&show);
         ImGui::EndFrame();
