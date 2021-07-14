@@ -13,9 +13,9 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/spdlog)
 add_subdirectory(${CMAKE_SOURCE_DIR}/imgui)
 
 # Add fPIC definition for spdlog [on Linux]
-if (UNIX AND NOT APPLE)
-    target_compile_options(spdlog PRIVATE -fPIC)
-endif()
+# if (UNIX AND NOT APPLE)
+#     target_compile_options(spdlog PRIVATE -fPIC)
+# endif()
 
 # Create MaxyEngine project
 project(MaxyEngine)
