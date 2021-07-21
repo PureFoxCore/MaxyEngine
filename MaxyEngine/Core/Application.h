@@ -23,17 +23,18 @@ namespace Maxy
         void PushLayer(Layer *layer);
         void PushOverlay(Layer *overlay);
 
-        inline static Application& Get() { return *s_Instance; }
+        inline static Application &Get() { return *s_Instance; }
         inline Window &GetWindow() { return *m_Window; }
 
     private:
         bool OnWindowClose(WindowCloseEvent &e);
 
-    private:
+        unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
         std::unique_ptr<Window> m_Window;
-        ImGUILayer* m_ImGUILayer;
+        ImGUILayer *m_ImGUILayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
+
         static Application *s_Instance;
     };
 

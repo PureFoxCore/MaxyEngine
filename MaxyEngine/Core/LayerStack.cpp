@@ -9,7 +9,7 @@ namespace Maxy
 
     LayerStack::~LayerStack()
     {
-        for (auto &&layer : m_Layers)
+        for (auto &layer : m_Layers)
             delete layer;
     }
 

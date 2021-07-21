@@ -4,8 +4,6 @@
 #include "Core/Events/Events.h"
 #include "Core/Logger.h"
 
-#include <glad/glad.h>
-
 namespace Maxy
 {   
     static bool isGLFWInitialized = false;
@@ -32,9 +30,9 @@ namespace Maxy
         m_Data.Title = props.GetTitle();
         m_Data.Width = props.GetWidth();
         m_Data.Height = props.GetHeight();
-    
+
         MAXY_CORE_INFO("Creating window: [Title: {0}, Width: {1}, Height: {2}]", props.GetTitle(), props.GetWidth(), props.GetHeight());
-    
+
         if (!isGLFWInitialized)
         {
             int success = glfwInit();
@@ -49,12 +47,13 @@ namespace Maxy
         }
 
         m_Window = glfwCreateWindow((int)props.GetWidth(), (int)props.GetHeight(), props.GetTitle().c_str(), NULL, NULL);
-        glfwMakeContextCurrent(m_Window);
-        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-        MAXY_CORE_ASSERT(status, "Failed to initialize GLAD!");
+
+        m_Context = new OpenGLContext(m_Window);
+        m_Context->Init();
+
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
-        
+
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
         {
@@ -140,7 +139,7 @@ namespace Maxy
     void LinuxWindow::OnUpdate()
     {
         glfwPollEvents();
-        glfwSwapBuffers(m_Window);
+        m_Context->SwapBuffers();
     }
 
     void LinuxWindow::SetVSync(bool state)

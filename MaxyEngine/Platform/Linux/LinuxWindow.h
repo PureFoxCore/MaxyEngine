@@ -2,8 +2,9 @@
 
 #include "Core/Window.h"
 
+#include "Platform/OpenGL/OpenGLContext.h"
+
 #include <string>
-#include <GLFW/glfw3.h>
 
 namespace Maxy
 {
@@ -30,6 +31,8 @@ namespace Maxy
 
     private:
         GLFWwindow *m_Window;
+
+        Renderer::Context *m_Context;
 
         struct WindowData
         {
