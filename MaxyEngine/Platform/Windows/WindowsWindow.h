@@ -2,7 +2,6 @@
 
 #include "Core/Window.h"
 
-#include <string>
 #include <GLFW/glfw3.h>
 
 namespace Maxy

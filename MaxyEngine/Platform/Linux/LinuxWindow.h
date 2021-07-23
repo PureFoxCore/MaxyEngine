@@ -4,8 +4,6 @@
 
 #include "Platform/OpenGL/OpenGLContext.h"
 
-#include <string>
-
 namespace Maxy
 {
     class LinuxWindow : public Window

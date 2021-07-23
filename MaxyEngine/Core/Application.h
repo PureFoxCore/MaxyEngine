@@ -6,6 +6,7 @@
 #include "Core/Window.h"
 #include "Core/LayerStack.h"
 #include "Core/Events/Event.h"
+#include "Core/Renderer/Shader.h"
 #include "Core/ImGUI/ImGUILayer.h"
 #include "Core/Events/ApplicationEvent.h"
 
@@ -30,6 +31,8 @@ namespace Maxy
         bool OnWindowClose(WindowCloseEvent &e);
 
         unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+        std::unique_ptr<Shader> m_Shader;
+
         std::unique_ptr<Window> m_Window;
         ImGUILayer *m_ImGUILayer;
         bool m_Running = true;
