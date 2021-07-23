@@ -67,11 +67,11 @@ namespace Maxy
             glBindVertexArray(m_VertexArray);
             glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
-            for (auto &layer : m_LayerStack)
+            for (Layer *layer : m_LayerStack)
                 layer->OnUpdate();
 
             m_ImGUILayer->Begin();
-            for (auto &layer : m_LayerStack)
+            for (Layer *layer : m_LayerStack)
                 layer->OnImGUIRender();
             m_ImGUILayer->End();
 
