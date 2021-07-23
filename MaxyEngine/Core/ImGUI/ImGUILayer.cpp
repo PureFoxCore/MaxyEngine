@@ -13,9 +13,14 @@
 
 namespace Maxy
 {
+    float *color[3];
+
     ImGUILayer::ImGUILayer()
         : Layer("ImGUILayer")
     {
+        color[0] = &m_BackgroundColor.x;
+        color[1] = &m_BackgroundColor.y;
+        color[2] = &m_BackgroundColor.z;
     }
 
     ImGUILayer::~ImGUILayer()
@@ -134,8 +139,12 @@ namespace Maxy
 
     void ImGUILayer::OnImGUIRender()
     {
-        static bool state = true;
-        ImGui::ShowDemoWindow(&state);
+        // static bool state = true;
+        // ImGui::ShowDemoWindow(&state);
+
+        ImGui::Begin("Settings", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize);
+        ImGui::ColorEdit3("Background", *color);
+        ImGui::End();
     }
 
     void ImGUILayer::Begin()

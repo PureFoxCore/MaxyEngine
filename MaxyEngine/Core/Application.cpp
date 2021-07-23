@@ -61,7 +61,8 @@ namespace Maxy
     {
         while (m_Running)
         {
-            glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+            // glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+            glClearColor(m_ImGUILayer->GetBackgroundColor().x, m_ImGUILayer->GetBackgroundColor().y, m_ImGUILayer->GetBackgroundColor().z, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             glBindVertexArray(m_VertexArray);
