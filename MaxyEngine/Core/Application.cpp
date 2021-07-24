@@ -45,8 +45,6 @@ namespace Maxy
 
             layout(location = 0) in vec3 a_Position;
 
-            out vec3 v_Position;
-
             void main()
             {
                 gl_Position = vec4(a_Position, 1.0);
@@ -61,11 +59,10 @@ namespace Maxy
             #endif
 
             layout(location = 0) out vec4 color;
-            in vec3 v_Position;
 
             void main()
             {
-                color = vec4(abs(v_Position), 1.0);
+                color = vec4(1.0, 0.2, 0.2, 1.0);
             }
         )";
         m_Shader.reset(new Shader(vertexSource, fragmentSource));
