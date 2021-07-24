@@ -41,7 +41,7 @@ namespace Maxy
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
         std::string vertexSource = R"(
-            #version 330 core
+            #version 310 es
 
             layout(location = 0) in vec3 a_Position;
 
@@ -54,7 +54,11 @@ namespace Maxy
         )";
 
         std::string fragmentSource = R"(
-            #version 330 core
+            #version 310 es
+
+            #ifdef GL_ES
+            precision mediump float;
+            #endif
 
             layout(location = 0) out vec4 color;
             in vec3 v_Position;
