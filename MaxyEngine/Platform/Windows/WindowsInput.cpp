@@ -11,21 +11,21 @@ namespace Maxy
     Input *Input::s_Instance = new WindowsInput();
 #endif
 
-    bool WindowsInput::IsKeyPressedImplementation(int keycode)
+    bool WindowsInput::IsKeyPressedImpl(int keycode)
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         auto state = glfwGetKey(window, keycode);
         return state == GLFW_PRESS || state == GLFW_REPEAT;
     }
 
-    bool WindowsInput::IsMouseButtonPressedImplementation(int button)
+    bool WindowsInput::IsMouseButtonPressedImpl(int button)
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         auto state = glfwGetMouseButton(window, button);
         return state == GLFW_PRESS;
     }
 
-    std::pair<float, float> WindowsInput::GetMousePositionImplementation()
+    std::pair<float, float> WindowsInput::GetMousePositionImpl()
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         double xPos, yPos;
@@ -34,15 +34,15 @@ namespace Maxy
         return {(float)xPos, (float)yPos};
     }
 
-    float WindowsInput::GetMouseXImplementation()
+    float WindowsInput::GetMouseXImpl()
     {
-        auto [x, y] = GetMousePositionImplementation();
+        auto [x, y] = GetMousePositionImpl();
         return x;
     }
 
-    float WindowsInput::GetMouseYImplementation()
+    float WindowsInput::GetMouseYImpl()
     {
-        auto [x, y] = GetMousePositionImplementation();
+        auto [x, y] = GetMousePositionImpl();
         return y;
     }
 }

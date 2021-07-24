@@ -11,21 +11,21 @@ namespace Maxy
     Input *Input::s_Instance = new LinuxInput();
 #endif
 
-    bool LinuxInput::IsKeyPressedImplementation(int keycode)
+    bool LinuxInput::IsKeyPressedImpl(int keycode)
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         auto state = glfwGetKey(window, keycode);
         return state == GLFW_PRESS || state == GLFW_REPEAT;
     }
 
-    bool LinuxInput::IsMouseButtonPressedImplementation(int button)
+    bool LinuxInput::IsMouseButtonPressedImpl(int button)
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         auto state = glfwGetMouseButton(window, button);
         return state == GLFW_PRESS;
     }
 
-    std::pair<float, float> LinuxInput::GetMousePositionImplementation()
+    std::pair<float, float> LinuxInput::GetMousePositionImpl()
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         double xPos, yPos;
@@ -34,15 +34,15 @@ namespace Maxy
         return {(float)xPos, (float)yPos};
     }
 
-    float LinuxInput::GetMouseXImplementation()
+    float LinuxInput::GetMouseXImpl()
     {
-        auto [x, y] = GetMousePositionImplementation();
+        auto [x, y] = GetMousePositionImpl();
         return x;
     }
 
-    float LinuxInput::GetMouseYImplementation()
+    float LinuxInput::GetMouseYImpl()
     {
-        auto [x, y] = GetMousePositionImplementation();
+        auto [x, y] = GetMousePositionImpl();
         return y;
     }
 }
