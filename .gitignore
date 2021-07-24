@@ -3,3 +3,6 @@
 
 # VS Code files
 *.vscode/
+
+# ImGUI configuration file
+imgui.ini
