@@ -1,6 +1,6 @@
-#include "mxpch.h"
-#include "Core/Logger.h"
-#include "Core/Application.h"
+#include "mxpch.hpp"
+#include "Core/Logger.hpp"
+#include "Core/Application.hpp"
 
 #include <glad/glad.h>
 

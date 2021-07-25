@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core/Window.h"
+#include "Core/Window.hpp"
 
-#include <GLFW/glfw3.h>
+#include "Platform/OpenGL/OpenGLContext.hpp"
 
 namespace Maxy
 {
@@ -29,6 +29,8 @@ namespace Maxy
 
     private:
         GLFWwindow *m_Window;
+
+        Renderer::Context *m_Context;
 
         struct WindowData
         {

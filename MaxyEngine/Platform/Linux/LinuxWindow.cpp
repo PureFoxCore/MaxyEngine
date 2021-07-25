@@ -1,8 +1,8 @@
-#include "mxpch.h"
+#include "mxpch.hpp"
 
-#include "Platform/Linux/LinuxWindow.h"
-#include "Core/Events/Events.h"
-#include "Core/Logger.h"
+#include "Platform/Linux/LinuxWindow.hpp"
+#include "Core/Events/Events.hpp"
+#include "Core/Logger.hpp"
 
 namespace Maxy
 {

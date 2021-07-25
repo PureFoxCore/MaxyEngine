@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core/KeyCodes.h"
-#include "Core/MouseButtonCodes.h"
+#include "Core/KeyCodes.hpp"
+#include "Core/MouseButtonCodes.hpp"
 
 namespace Maxy
 {

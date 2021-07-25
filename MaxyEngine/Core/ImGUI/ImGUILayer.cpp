@@ -1,12 +1,12 @@
-#include "mxpch.h"
+#include "mxpch.hpp"
 
-#include "Core/Logger.h"
-#include "Core/Application.h"
-#include "Core/ImGUI/ImGUILayer.h"
+#include "Core/Logger.hpp"
+#include "Core/Application.hpp"
+#include "Core/ImGUI/ImGUILayer.hpp"
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 
-#include "Core/Input.h"
+#include "Core/Input.hpp"
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>

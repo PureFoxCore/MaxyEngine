@@ -1,4 +1,4 @@
-#include <Maxy.h>
+#include <Maxy.hpp>
 
 class ExampleLayer : public Maxy::Layer
 {

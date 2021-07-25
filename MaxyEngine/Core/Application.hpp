@@ -2,13 +2,13 @@
 
 #include <memory>
 
-#include "Core/Core.h"
-#include "Core/Window.h"
-#include "Core/LayerStack.h"
-#include "Core/Events/Event.h"
-#include "Core/Renderer/Shader.h"
-#include "Core/ImGUI/ImGUILayer.h"
-#include "Core/Events/ApplicationEvent.h"
+#include "Core/Core.hpp"
+#include "Core/Window.hpp"
+#include "Core/LayerStack.hpp"
+#include "Core/Events/Event.hpp"
+#include "Core/Renderer/Shader.hpp"
+#include "Core/ImGUI/ImGUILayer.hpp"
+#include "Core/Events/ApplicationEvent.hpp"
 
 namespace Maxy
 {

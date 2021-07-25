@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core/Events/Event.h"
-#include "Core/WindowProps.h"
+#include "Core/Events/Event.hpp"
+#include "Core/WindowProps.hpp"
 
 namespace Maxy
 {

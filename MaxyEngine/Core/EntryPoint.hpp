@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core/Application.h"
-#include "Core/Logger.h"
+#include "Core/Application.hpp"
+#include "Core/Logger.hpp"
 
 extern Maxy::Application *Maxy::CreateApplication();
 

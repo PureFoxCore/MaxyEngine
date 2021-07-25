@@ -19,7 +19,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/imgui)
 
 # Create MaxyEngine project
 project(MaxyEngine)
-file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
+file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
 add_library(${PROJECT_NAME} STATIC ${MaxyEngineFiles})
 
 # Platform definition
@@ -40,7 +40,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_ENABLE_ASSERTS)
 target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE)
 
 # Add precompiled header in to MaxyEngine project
-target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/mxpch.h)
+target_precompile_headers(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/mxpch.hpp)
 
 # Link GL, GLFW, GLAD, ImGUi & SpdLog Libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw)

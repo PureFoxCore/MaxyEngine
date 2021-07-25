@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Renderer/Context.h"
+#include "Core/Renderer/Context.hpp"
 
 #include <GLFW/glfw3.h>
 

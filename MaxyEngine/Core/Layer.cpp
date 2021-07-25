@@ -1,5 +1,5 @@
-#include "mxpch.h"
-#include "Core/Layer.h"
+#include "mxpch.hpp"
+#include "Core/Layer.hpp"
 
 namespace Maxy
 {

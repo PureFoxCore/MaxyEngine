@@ -1,7 +1,7 @@
-#include "mxpch.h"
+#include "mxpch.hpp"
 
-#include "Platform/OpenGL/OpenGLContext.h"
-#include "Core/Logger.h"
+#include "Platform/OpenGL/OpenGLContext.hpp"
+#include "Core/Logger.hpp"
 
 #include <glad/glad.h>
 

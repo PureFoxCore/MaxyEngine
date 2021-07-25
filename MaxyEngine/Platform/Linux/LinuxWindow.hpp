@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core/Window.h"
+#include "Core/Window.hpp"
 
-#include "Platform/OpenGL/OpenGLContext.h"
+#include "Platform/OpenGL/OpenGLContext.hpp"
 
 namespace Maxy
 {

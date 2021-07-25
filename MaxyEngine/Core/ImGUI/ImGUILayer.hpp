@@ -1,8 +1,8 @@
 #pragma once
 
 #include "imgui.h"
-#include "Core/Layer.h"
-#include "Core/Events/Events.h"
+#include "Core/Layer.hpp"
+#include "Core/Events/Events.hpp"
 
 namespace Maxy
 {

@@ -1,7 +1,7 @@
-#include "mxpch.h"
+#include "mxpch.hpp"
 
-#include "Core/Renderer/Shader.h"
-#include "Core/Logger.h"
+#include "Core/Renderer/Shader.hpp"
+#include "Core/Logger.hpp"
 
 #include <glad/glad.h>
 

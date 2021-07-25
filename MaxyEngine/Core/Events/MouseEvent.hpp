@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Events/Event.h"
+#include "Core/Events/Event.hpp"
 #include <sstream>
 
 namespace Maxy

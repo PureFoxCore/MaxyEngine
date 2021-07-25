@@ -1,7 +1,7 @@
-#include "mxpch.h"
+#include "mxpch.hpp"
 
-#include "Platform/Windows/WindowsInput.h"
-#include "Core/Application.h"
+#include "Platform/Windows/WindowsInput.hpp"
+#include "Core/Application.hpp"
 
 #include <GLFW/glfw3.h>
 

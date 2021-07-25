@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Input.h"
+#include "Core/Input.hpp"
 
 namespace Maxy
 {

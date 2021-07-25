@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core/Core.h"
-#include "Core/Events/Event.h"
+#include "Core/Core.hpp"
+#include "Core/Events/Event.hpp"
 
 namespace Maxy
 {

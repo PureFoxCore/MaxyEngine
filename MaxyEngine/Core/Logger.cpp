@@ -1,5 +1,5 @@
-#include "mxpch.h"
-#include "Core/Logger.h"
+#include "mxpch.hpp"
+#include "Core/Logger.hpp"
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 

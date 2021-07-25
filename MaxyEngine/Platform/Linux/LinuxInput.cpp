@@ -1,7 +1,7 @@
-#include "mxpch.h"
+#include "mxpch.hpp"
 
-#include "Platform/Linux/LinuxInput.h"
-#include "Core/Application.h"
+#include "Platform/Linux/LinuxInput.hpp"
+#include "Core/Application.hpp"
 
 #include <GLFW/glfw3.h>
 
