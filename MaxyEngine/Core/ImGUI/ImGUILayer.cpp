@@ -20,7 +20,6 @@ namespace Maxy
 
     ImGUILayer::~ImGUILayer()
     {
-        OnDetach();
     }
 
     void SetCustomImGUIStyle()
