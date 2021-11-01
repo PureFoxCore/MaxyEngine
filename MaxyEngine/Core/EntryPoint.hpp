@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     Maxy::Logger::Init();
     MAXY_CORE_INFO("Logger initialized!");
 
-    auto app = Maxy::CreateApplication();
+    auto *app = Maxy::CreateApplication();
     app->Run();
     delete app;
     return 0;
