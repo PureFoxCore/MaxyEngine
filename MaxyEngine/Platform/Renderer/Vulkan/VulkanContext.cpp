@@ -3,7 +3,6 @@
 #include "VulkanContext.hpp"
 #include "Core/Logger.hpp"
 
-// TODO(PureFoxCore): Implement vulkan API
 namespace Maxy
 {
     VulkanContext::VulkanContext(GLFWwindow *windowHandle)

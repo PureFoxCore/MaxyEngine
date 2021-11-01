@@ -15,7 +15,7 @@ namespace Maxy
 
         m_Window = std::unique_ptr<Window>(Window::Create(WindowProps(1280, 720, "Maxy Engine")));
         m_Window->SetEventCallback(MAXY_BIND_EVENT_FN(Application::OnEvent));
-        // TODO(PureFoxCore): make ImGUI layer removable
+        // TODO(PureFoxCore): Make ImGUI layer removable
         m_ImGUILayer = new ImGUILayer();
         PushOverlay(m_ImGUILayer);
 
