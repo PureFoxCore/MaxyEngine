@@ -1,6 +1,6 @@
 # MaxyEngine - Simple game engine
 
-## How to build [Linux]:
+## How to build [Linux & MacOS]:
 1. Clone [this](https://github.com/PureFoxCore/MaxyEngine) repository with recursive flag [git clone --recursive https://github.com/PureFoxCore/MaxyEngine]
 2. Change directory in to cloned folder [cd MaxyEnine]
 3. Create build folder and change directory in to build folder [mkdir build && cd build]
