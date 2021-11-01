@@ -1,6 +1,6 @@
 #include "mxpch.hpp"
 
-#include "Platform/Linux/LinuxWindow.hpp"
+#include "DesktopWindow.hpp"
 #include "Core/Events/Events.hpp"
 #include "Core/Logger.hpp"
 
@@ -8,24 +8,22 @@ namespace Maxy
 {
     static bool isGLFWInitialized = false;
 
-#ifdef MAXY_PLATFORM_LINUX
     Window *Window::Create(const WindowProps &props)
     {
-        return new LinuxWindow(props);
+        return new DesktopWindow(props);
     }
-#endif
 
-    LinuxWindow::LinuxWindow(const WindowProps &props)
+    DesktopWindow::DesktopWindow(const WindowProps &props)
     {
         Init(props);
     }
 
-    LinuxWindow::~LinuxWindow()
+    DesktopWindow::~DesktopWindow()
     {
         Shutdown();
     }
 
-    void LinuxWindow::Init(const WindowProps &props)
+    void DesktopWindow::Init(const WindowProps &props)
     {
         m_Data.Title = props.GetTitle();
         m_Data.Width = props.GetWidth();
@@ -46,6 +44,7 @@ namespace Maxy
 
         m_Window = glfwCreateWindow((int)props.GetWidth(), (int)props.GetHeight(), props.GetTitle().c_str(), NULL, NULL);
 
+        // TODO(PureFoxCore): Context selection
         m_Context = new OpenGLContext(m_Window);
         m_Context->Init();
 
@@ -129,29 +128,26 @@ namespace Maxy
                                  });
     }
 
-    void LinuxWindow::Shutdown()
+    void DesktopWindow::Shutdown()
     {
+        m_Context->ShutDown();
         glfwDestroyWindow(m_Window);
         glfwTerminate();
     }
 
-    void LinuxWindow::OnUpdate()
+    void DesktopWindow::OnUpdate()
     {
         glfwPollEvents();
         m_Context->SwapBuffers();
     }
 
-    void LinuxWindow::SetVSync(bool state)
+    void DesktopWindow::SetVSync(bool state)
     {
-        if (state)
-            glfwSwapInterval(1);
-        else
-            glfwSwapInterval(0);
-
+        m_Context->SetVSync(state);
         m_Data.VSync = state;
     }
 
-    bool LinuxWindow::IsVSync() const
+    bool DesktopWindow::IsVSync() const
     {
         return m_Data.VSync;
     }

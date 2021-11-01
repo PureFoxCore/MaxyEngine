@@ -2,15 +2,15 @@
 
 #include "Core/Window.hpp"
 
-#include "Platform/OpenGL/OpenGLContext.hpp"
+#include "Platform/Renderer/OpenGL/OpenGLContext.hpp"
 
 namespace Maxy
 {
-    class LinuxWindow : public Window
+    class DesktopWindow : public Window
     {
     public:
-        LinuxWindow(const WindowProps &props);
-        virtual ~LinuxWindow();
+        DesktopWindow(const WindowProps &props);
+        virtual ~DesktopWindow();
 
         void OnUpdate() override;
 

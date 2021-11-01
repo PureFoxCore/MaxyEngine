@@ -3,6 +3,8 @@
 #include "Core/Core.hpp"
 #include "Core/Events/Event.hpp"
 
+#include <string>
+
 namespace Maxy
 {
     class Layer

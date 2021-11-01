@@ -15,6 +15,7 @@ namespace Maxy
 
         m_Window = std::unique_ptr<Window>(Window::Create(WindowProps(1280, 720, "Maxy Engine")));
         m_Window->SetEventCallback(MAXY_BIND_EVENT_FN(Application::OnEvent));
+        // TODO(PureFoxCore): make ImGUI layer removable
         m_ImGUILayer = new ImGUILayer();
         PushOverlay(m_ImGUILayer);
 
@@ -40,6 +41,7 @@ namespace Maxy
         unsigned int indices[3] = {0, 1, 2};
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
+        // TODO(PureFoxCore): Load shaders
         std::string vertexSource = R"(
             #version 310 es
 

@@ -4,7 +4,7 @@
 
 namespace Maxy
 {
-    class WindowsInput : public Input
+    class DesktopInput : public Input
     {
     protected:
         virtual bool IsKeyPressedImpl(int keycode) override;

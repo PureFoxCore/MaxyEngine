@@ -3,6 +3,8 @@
 #include "Core/Core.hpp"
 
 #include <functional>
+#include <string>
+
 
 namespace Maxy
 {

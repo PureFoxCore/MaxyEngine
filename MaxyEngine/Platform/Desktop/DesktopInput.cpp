@@ -1,31 +1,29 @@
 #include "mxpch.hpp"
 
-#include "Platform/Windows/WindowsInput.hpp"
+#include "DesktopInput.hpp"
 #include "Core/Application.hpp"
 
 #include <GLFW/glfw3.h>
 
 namespace Maxy
 {
-#ifdef MAXY_PLATFORM_WINDOWS
-    Input *Input::s_Instance = new WindowsInput();
-#endif
+    Input *Input::s_Instance = new DesktopInput();
 
-    bool WindowsInput::IsKeyPressedImpl(int keycode)
+    bool DesktopInput::IsKeyPressedImpl(int keycode)
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         auto state = glfwGetKey(window, keycode);
         return state == GLFW_PRESS || state == GLFW_REPEAT;
     }
 
-    bool WindowsInput::IsMouseButtonPressedImpl(int button)
+    bool DesktopInput::IsMouseButtonPressedImpl(int button)
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         auto state = glfwGetMouseButton(window, button);
         return state == GLFW_PRESS;
     }
 
-    std::pair<float, float> WindowsInput::GetMousePositionImpl()
+    std::pair<float, float> DesktopInput::GetMousePositionImpl()
     {
         auto window = static_cast<GLFWwindow *>(Application::Get().GetWindow().GetNativeWindow());
         double xPos, yPos;
@@ -34,13 +32,13 @@ namespace Maxy
         return {(float)xPos, (float)yPos};
     }
 
-    float WindowsInput::GetMouseXImpl()
+    float DesktopInput::GetMouseXImpl()
     {
         auto [x, y] = GetMousePositionImpl();
         return x;
     }
 
-    float WindowsInput::GetMouseYImpl()
+    float DesktopInput::GetMouseYImpl()
     {
         auto [x, y] = GetMousePositionImpl();
         return y;

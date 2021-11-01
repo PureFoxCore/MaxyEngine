@@ -7,18 +7,6 @@ public:
         : Layer("Example")
     {
     }
-
-    // void OnUpdate() override
-    // {
-    // }
-
-    // void OnImGUIRender() override
-    // {
-    // }
-
-    // void OnEvent(Maxy::Event &event) override
-    // {
-    // }
 };
 
 class SandBox : public Maxy::Application
