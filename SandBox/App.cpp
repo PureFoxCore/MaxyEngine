@@ -7,6 +7,22 @@ public:
         : Layer("Example")
     {
     }
+
+    void OnImGUIRender() override
+    {
+        ImGui::Begin("GuiWindow");
+        static char path[128];
+        static std::string text;
+        ImGui::InputText("File path", path, 128);
+        if (ImGui::Button("Go", ImVec2(120, 20)))
+        {
+            text.clear();
+            text = Maxy::FileSystem::ReadFile(path);
+        }
+        ImGui::Text("%s", text.c_str());
+
+        ImGui::End();
+    }
 };
 
 class SandBox : public Maxy::Application

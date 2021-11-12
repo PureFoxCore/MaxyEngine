@@ -134,8 +134,10 @@ namespace Maxy
 
     void ImGUILayer::OnImGUIRender()
     {
+#ifdef MAXY_EDITOR
         static bool state = true;
         ImGui::ShowDemoWindow(&state);
+#endif
     }
 
     void ImGUILayer::Begin()

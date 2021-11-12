@@ -12,15 +12,21 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/glm)
 add_subdirectory(${CMAKE_SOURCE_DIR}/spdlog)
 add_subdirectory(${CMAKE_SOURCE_DIR}/imgui)
 
-# Add fPIC definition for spdlog [on Linux]
-# if (UNIX AND NOT APPLE)
-#     target_compile_options(spdlog PRIVATE -fPIC)
-# endif()
-
 # Create MaxyEngine project
 project(MaxyEngine)
-file(GLOB_RECURSE MaxyEngineFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
-add_library(${PROJECT_NAME} STATIC ${MaxyEngineFiles})
+file(GLOB_RECURSE ${PROJECT_NAME}Files
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.c
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
+add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}Files})
+
+# Check use editor or no
+option(USE_EDITOR "Use editor to edit game" ON)
+
+if(USE_EDITOR)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_EDITOR)    
+endif(USE_EDITOR)
 
 # Platform definition
 if(WIN32)
@@ -64,8 +70,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/${PROJECT_
 
 # Create SandBox project
 project(SandBox)
-file(GLOB_RECURSE SandBoxFiles ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
-add_executable(${PROJECT_NAME} ${SandBoxFiles})
+file(GLOB_RECURSE ${PROJECT_NAME}Files
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.c
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp 
+    ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
+add_executable(${PROJECT_NAME} ${${PROJECT_NAME}Files})
 
 # Link SandBox to MaxyEngine
 target_link_libraries(${PROJECT_NAME} PRIVATE MaxyEngine)
