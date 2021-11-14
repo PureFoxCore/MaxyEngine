@@ -18,7 +18,7 @@ namespace Maxy
         }
         catch (const std::exception &exception)
         {
-            MAXY_ERROR(exception.what());
+            MAXY_CORE_ERROR(exception.what());
             return exception.what();
         }
     }
@@ -33,7 +33,7 @@ namespace Maxy
         }
         catch (const std::exception &exception)
         {
-            MAXY_ERROR(exception.what());
+            MAXY_CORE_ERROR(exception.what());
         }
     }
 
@@ -47,7 +47,7 @@ namespace Maxy
         }
         catch (const std::exception &exception)
         {
-            MAXY_ERROR(exception.what());
+            MAXY_CORE_ERROR(exception.what());
         }
     }
 
