@@ -22,11 +22,11 @@ file(GLOB_RECURSE ${PROJECT_NAME}Files
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}Files})
 
 # Check use editor or no
-option(USE_EDITOR "Use editor to edit game" ON)
+option(MAXY_EDITOR "Use editor to edit game" ON)
 
-if(USE_EDITOR)
+if(MAXY_EDITOR)
     target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_EDITOR)    
-endif(USE_EDITOR)
+endif(MAXY_EDITOR)
 
 # Platform definition
 if(WIN32)
