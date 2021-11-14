@@ -29,7 +29,7 @@ if(MAXY_EDITOR)
 endif(MAXY_EDITOR)
 
 # Platform definition
-if(WIN32)
+if(WIN32 OR MINGW)
     target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_PLATFORM_WINDOWS)
 endif()
 if(APPLE)
