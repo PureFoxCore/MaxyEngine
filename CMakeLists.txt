@@ -54,6 +54,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC glad)
 target_link_libraries(${PROJECT_NAME} PUBLIC imgui)
 target_link_libraries(${PROJECT_NAME} PUBLIC spdlog)
 
+if (WIN32 OR MINGW)
+    target_link_libraries(${PROJECT_NAME} PUBLIC imm32)
+endif()
 if (UNIX)
     target_link_libraries(${PROJECT_NAME} PUBLIC GL)
 endif()
@@ -76,6 +79,13 @@ file(GLOB_RECURSE ${PROJECT_NAME}Files
     ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.hpp 
     ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.cpp)
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}Files})
+
+# For MinGW build
+if (MINGW)
+    message(STATUS "[MinGW Build] static link static-libgcc -static-libstdc++ and winpthread")
+    set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ ${CMAKE_CXX_STANDARD_LIBRARIES}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive")
+endif()
 
 # Link SandBox to MaxyEngine
 target_link_libraries(${PROJECT_NAME} PRIVATE MaxyEngine)
