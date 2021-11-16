@@ -34,13 +34,11 @@ namespace Maxy
 
     float DesktopInput::GetMouseXImpl()
     {
-        auto [x, y] = GetMousePositionImpl();
-        return x;
+        return GetMousePositionImpl().first;
     }
 
     float DesktopInput::GetMouseYImpl()
     {
-        auto [x, y] = GetMousePositionImpl();
-        return y;
+        return GetMousePositionImpl().second;
     }
 }
