@@ -73,6 +73,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/${PROJECT_
 
 # Create SandBox project
 project(SandBox)
+
+if (MINGW)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
+endif()
+
 file(GLOB_RECURSE ${PROJECT_NAME}Files
     ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h
     ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.c
