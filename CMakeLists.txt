@@ -24,6 +24,8 @@ add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}Files})
 # Check use editor or no
 option(MAXY_EDITOR "Use editor to edit game" ON)
 
+option(HIDE_MAXY_EDITOR_CONSOLE "Hide console window" ON)
+
 if(MAXY_EDITOR)
     target_compile_definitions(${PROJECT_NAME} PRIVATE MAXY_EDITOR)    
 endif(MAXY_EDITOR)
@@ -73,10 +75,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/${PROJECT_
 
 # Create SandBox project
 project(SandBox)
-
-if (MINGW)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
-endif()
+if (HIDE_MAXY_EDITOR_CONSOLE)
+    if (MINGW OR WIN32)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
+    endif()
+endif(HIDE_MAXY_EDITOR_CONSOLE)
 
 file(GLOB_RECURSE ${PROJECT_NAME}Files
     ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/**.h
